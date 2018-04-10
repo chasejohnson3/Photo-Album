@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PhotoIndividual from "./PhotoIndividual.js"
 
 
 class Background extends Component {
@@ -13,7 +14,7 @@ class Background extends Component {
         return (
             <div>
                 {this.state.tabsAvailable.map((tab) => <button>{tab}</button>)}
-
+                <PhotoIndividual></PhotoIndividual>
             </div>
             
         );
