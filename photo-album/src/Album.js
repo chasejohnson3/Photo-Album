@@ -12,7 +12,7 @@ class Album extends Component {
     render(){
         return (
             <div>
-                <PhotoIndividual/>
+                <Photo/>
             </div>
             
         );
