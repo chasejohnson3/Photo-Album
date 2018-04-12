@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Photos from "./PhotoIndividual.js"
+import Photos from "./Photo.js"
 
 
 class Background extends Component {
