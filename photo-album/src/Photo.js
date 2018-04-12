@@ -7,6 +7,8 @@ class Photo extends Component {
         super(props);
         this.state = {
             image : image1,
+            favorite : false,
+            comment: ""
         }
     }
 
