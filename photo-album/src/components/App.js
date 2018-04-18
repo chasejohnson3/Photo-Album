@@ -4,7 +4,7 @@ import '../styles/App.css';
 import TableTop from './TableTopComponent';
 import Individual from './IndividualComponent';
 import Gallery from './GalleryComponent';
-import Album from './AlbumComponent';
+import AlbumComponent from './AlbumComponent';
 
 
 // import route Components here
@@ -37,7 +37,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Gallery} />
             <Route path="/gallery" component={Gallery}/>
-            <Route path="/album" component={Album} />
+            <Route path="/album" component={AlbumComponent} />
             <Route path="/individual" component={Individual} />
             <Route path="/tabletop" component={TableTop} />
           </Switch>

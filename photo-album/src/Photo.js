@@ -6,7 +6,6 @@ class Photo extends Component {
     constructor(props){
         super(props);
         this.state = {
-            image : image1,
             favorite : false,
             comment: ""
         }
@@ -15,7 +14,7 @@ class Photo extends Component {
     render(){
         return(
             <div>
-                <img src={this.state.image}/>
+                <img src={this.props.image}/>
             </div>
         )
     }
