@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PhotoIndividual from "./Photo.js"
+import Photo from "./Photo.js"
 
 
 class Album extends Component {
@@ -12,7 +12,7 @@ class Album extends Component {
     render(){
         return (
             <div>
-                <Photo/>
+                {/* <Photo/> */}
             </div>
             
         );
