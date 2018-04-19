@@ -6,17 +6,19 @@ class Gallery extends Component {
     constructor(props){
         super(props);
         this.state={
-           
-        }
+			gallery: []
+		}
     }
     render(){
         return (
-            <div>
-                <Photos/>
-            </div>
+			<ul>
+			{Album}
+			</ul>
+
             
         );
     }
 }
+
 
 export default Gallery;
