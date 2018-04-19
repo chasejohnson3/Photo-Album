@@ -7,8 +7,10 @@ class Photo extends Component {
         this.state = {
             favorite : false,
             comment: "",
-            editableText: true,
-            autoFocusOn: false,
+            editableComment: true,
+            autoFocusOnComment: false,
+            autoFocusOnTitle: false,            
+            title: "Title",
         }
     }
 
@@ -18,6 +20,38 @@ class Photo extends Component {
         })
     }
 
+
+
+    updateTitle(newTitle){
+        this.setState((prevState, props) => {
+            return {title: newTitle}
+        })
+    }
+
+    makeTitleNotEditable(){
+        this.setState({
+            editableTitle: false
+        });
+    }
+
+    makeTitleEditable(){
+        this.setState({
+            editableTitle: true, // Open up the text box for the user
+            autoFocusOnTitle: true, // When the user goes to edit a comment, make the cursor turn on so the user can start typing right away
+        });
+    }
+
+    waitForEnterTitle = (event) => {
+        if(event.key == 'Enter'){
+            this.updateTitle(this.inputValTitle.value);
+            this.makeTitleNotEditable();
+        }
+    }
+
+
+
+
+
     updateComment(newComment){
         this.setState((prevState, props) => {
             return {comment: newComment}
@@ -26,20 +60,20 @@ class Photo extends Component {
 
     makeCommentNotEditable(){
         this.setState({
-            editableText: false
+            editableComment: false
         });
     }
 
     makeCommentEditable(){
         this.setState({
-            editableText: true, // Open up the text box for the user
-            autoFocusOn: true, // When the user goes to edit a comment, make the cursor turn on so the user can start typing right away
+            editableComment: true, // Open up the text box for the user
+            autoFocusOnComment: true, // When the user goes to edit a comment, make the cursor turn on so the user can start typing right away
         });
     }
 
-    waitForEnter = (event) => {
+    waitForEnterComment = (event) => {
         if(event.key == 'Enter'){
-            this.updateComment(this.inputVal.value);
+            this.updateComment(this.inputValComment.value);
             this.makeCommentNotEditable();
         }
     }
@@ -52,22 +86,38 @@ class Photo extends Component {
             justifyContent: 'center',
             alignItems: 'center',
         }
+        const makeTitleBoxBigger={
+            height:50,
+            fontSize:30,
+        }
 
         return(
             <div>
+                <h1
+                    onClick={() => this.makeTitleEditable()}
+                > {!this.state.editableTitle && this.state.title}</h1> {/*Display the title above the image */}
+                {(this.state.editableTitle) && 
+                    (<input
+                        style={makeTitleBoxBigger}
+                        ref={(titleBox) => {this.inputValTitle = titleBox}}
+                        autoFocus={this.state.autoFocusOnTitle}
+                        placeholder="Title" // Have a nice message to encourage the user to enter a comment
+                        onKeyPress={this.waitForEnterTitle} // If the user types a non-empty message and hits enter, the message is displayed as text
+                    />)}
+
                 <img src={this.props.image} style={styles}/>
-                <h1>{this.state.editableText}</h1>
+                <h1>{this.state.editableComment}</h1>
                 
                 <h6
                     onClick={() => this.makeCommentEditable()}
-                > {!this.state.editableText && this.state.comment}</h6>  {/*Display the user's comment as text*/}
+                > {!this.state.editableComment && this.state.comment}</h6>  {/*Display the user's comment as text*/}
                 
-                {(this.state.editableText) && 
+                {(this.state.editableComment) && 
                     (<input
-                        ref={(commentBox) => {this.inputVal = commentBox}}
-                        autoFocus={this.state.autoFocusOn}
+                        ref={(commentBox) => {this.inputValComment = commentBox}}
+                        autoFocus={this.state.autoFocusOnComment}
                         placeholder="Add a comment..." // Have a nice message to encourage the user to enter a comment
-                        onKeyPress={this.waitForEnter} // If the user types a non-empty message and hits enter, the message is displayed as text
+                        onKeyPress={this.waitForEnterComment} // If the user types a non-empty message and hits enter, the message is displayed as text
                     />)}
             </div>
         )
