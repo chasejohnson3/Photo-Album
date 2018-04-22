@@ -36,6 +36,7 @@ class Album extends Component {
             
         }
     }
+    
     render(){
         // const renderImage = (imageURL) => {return <Photo image = {imageURL}/>}
         const renderImage = (imageURL) => <img src = {imageURL}/>
@@ -45,16 +46,15 @@ class Album extends Component {
                 <Router>
                     <div>
                     
-                        {this.state.photos.map((photo) =>
+                        {this.state.photos.map((photo) => // Render the image of each of the photos in the list that can be clicked on to follow their link
                         
                             <div className="container">
                             
-                                <Link to={photo.props.name} onClick={()=> 
+                                <Link to={photo.props.name} onClick={()=> //  If we want to link to a photo, we have to save which photo was clicked
                                     {this.setState({
-                                    currPhoto:photo})}}
+                                    currPhoto:photo.props.image})}}
                                 >
-                                    <img src = {photo.props.image}/>
-                                   
+                                    <img src = {photo.props.image}/> {/* This is what displays each photo*/}
                                 </Link>  
                                 
                             </div>
@@ -65,7 +65,7 @@ class Album extends Component {
                             
                             
                         )}
-                        <Switch>
+                        <Switch>                            
                             <Route path="/photo1" component={() => {
                                 return (
                                     <div className="jumbotron">
@@ -73,9 +73,27 @@ class Album extends Component {
                                     </div>
                                 );
                             }}/>
-                            <Route path="/photo2" component={Individual} />
-                            <Route path="/photo3" component={Individual} />
-                            <Route path="/photo4" component={Individual} /> 
+                            <Route path="/photo2" component={() => {
+                                return (
+                                    <div className="jumbotron">
+                                        <Photo image = {this.state.currPhoto}/>            
+                                    </div>
+                                );
+                            }}/>
+                            <Route path="/photo3" component={() => {
+                                return (
+                                    <div className="jumbotron">
+                                        <Photo image = {this.state.currPhoto}/>            
+                                    </div>
+                                );
+                            }}/>
+                            <Route path="/photo4" component={() => {
+                                return (
+                                    <div className="jumbotron">
+                                        <Photo image = {this.state.currPhoto}/>            
+                                    </div>
+                                );
+                            }}/>
                         </Switch>
                    
                     
