@@ -6,6 +6,8 @@ import Individual from './IndividualComponent';
 import Gallery from './GalleryComponent';
 import AlbumComponent from './AlbumComponent';
 
+import image1 from "../hardcoded_photos/dog1.jpg"
+
 
 // import route Components here
 import {
@@ -26,7 +28,7 @@ class App extends Component {
           <div className="container">
             <ul>
               <li><Link to="/gallery">gallery</Link></li>
-              <li><Link to="/album">albums</Link></li>
+              <li><Link to="/album">album</Link></li>
               <li><Link to="/individual">individual</Link></li>
               <li>
                 <Link to="/tabletop">table top</Link>
