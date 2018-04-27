@@ -5,7 +5,7 @@ const AlbumComponent = () => {
     return (
         <div className="jumbotron">
             <h1 className="display-3">Album</h1>
-            <Album/>
+            {<Album/>}
         </div>
     );
 }

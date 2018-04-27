@@ -11,10 +11,10 @@ class Gallery extends Component {
     }
     render(){
         return (
-			<ul>
-			{Album}
-			</ul>
-
+			// <ul>
+			// {Album}
+			// </ul>
+            <h1>test</h1>
             
         );
     }

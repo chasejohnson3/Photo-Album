@@ -104,7 +104,6 @@ class Photo extends Component {
                         placeholder="Title" // Have a nice message to encourage the user to enter a comment
                         onKeyPress={this.waitForEnterTitle} // If the user types a non-empty message and hits enter, the message is displayed as text
                     />)}
-
                 <img src={this.props.image} style={styles}/>
                 <h1>{this.state.editableComment}</h1>
                 
