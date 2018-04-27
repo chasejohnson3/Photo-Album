@@ -10,14 +10,15 @@ import image4 from "./hardcoded_photos/dog4.jpg"
 class Album extends Component {
     constructor(props){
         super(props);
-        this.state={   
-			images: [image1, image2, image3, image4]
+        this.state={			
+			images: [image2, image3, image4, image1],
         }
     }
-    render(){
+	
+    render(){  
 		const renderImage = (imageURL) => {return <Photo image = {imageURL}/>}
-        return (
-			<div onClick = {() => alert("test")} >
+        return (		
+			<div>
 			{this.state.images.map(renderImage)}
 			</div>
         );

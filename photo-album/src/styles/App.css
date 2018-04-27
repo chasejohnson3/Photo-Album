@@ -1,3 +1,37 @@
+.Photo{
+  margin: 5px;
+ 
+  float: center;
+  width: 209px;
+
+  display: inline-block;
+}
+
+.Photo:hover {
+  border: 1px solid #777
+}
+
+.Photo:active {
+  border: none;
+}
+
+
+.Folder{
+  margin: 5px;
+ 
+  float: center;
+
+  display: inline-block;
+}
+
+.Folder:hover {
+  border: 1px solid #777
+}
+
+.Folder:active {
+  border: none;
+}
+
 .App {
   padding-top: 50px;
 }

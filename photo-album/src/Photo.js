@@ -1,3 +1,5 @@
+//flexbox
+//display
 import React, { Component } from 'react';
 
 
@@ -47,14 +49,11 @@ class Photo extends Component {
 
     render(){
         const styles ={
-            height:400,
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
+			width: '100%'
         }
 
         return(
-            <div>
+            <div className = 'Photo'>
                 <img src={this.props.image} style={styles}/>
                 <h1>{this.state.editableText}</h1>
                 
