@@ -1,37 +1,60 @@
 // import React, { Component } from 'react';
 // import Photos from "./Photo.js"
+// import Photo from "./Photo.js"
 
+// import icon1 from "./hardcoded_photos/folderIcon.png"
 
-// class Gallery extends Component {
-//     constructor(props){
-//         super(props);
-//         this.state={
-// 			gallery: []
+// import image1 from "./hardcoded_photos/dog1.jpg"
+// import image2 from "./hardcoded_photos/dog2.jpg"
+// import image3 from "./hardcoded_photos/dog3.jpg"
+// import image4 from "./hardcoded_photos/dog4.jpg"
+
+// class Folder extends Component{
+// 	constructor(props){
+// 		super(props);
+// 		this.state={
+// 		album: [image2, image3, image4, image1],
+// 		icon: icon1
 // 		}
-//     }
-//     render(){
-//         return (
-// 			// <ul>
-// 			// {Album}
-// 			// </ul>
-//             <h1>test</h1>
-            
-//         );
-//     }
+// 	}
+// 	render(){
+// 		return(
+// 				<img src = {this.state.icon} className = 'Folder'/>
+// 				);
+// 	}
 // }
+ 
+ 
+//  class Gallery extends Component {
+//      constructor(props){
+//             super(props);
+//             this.state={
+// 			    gallery: [],		    
+// 			folders : [<Folder/>, <Folder/>, <Folder/>]
+//         }
+//      }
+	
+//     render(){  
+        
+// 		const renderFolder = (folderURL) => {return <Folder/>}
+//          return (
 
+            
+// 			<div>
+// 			{this.state.folders.map(renderFolder)}
+// 			</div>
+//          );
+//      }
+//  }
+ 
 
-// export default Gallery;
-
+//  export default Gallery; 
 import React, { Component } from 'react';
 import Photo from "./Photo.js"
 import { render } from "react-dom";
 // import { BrowserRouter, Route, Link } from "react-router-dom";
 
-import TableTop from './components/TableTopComponent';
-import Individual from './components/IndividualComponent';
-import GalleryComponent from './components/GalleryComponent';
-import AlbumComponent from './components/AlbumComponent';
+// import icon1 from "./hardcoded_photos/folderIcon.png"
 
 // import route Components here
 import {
@@ -54,6 +77,8 @@ const babyPhotoList = [
     "/baby3.jpg"
 ]
 
+const folderIcon = "/folderIcon.png"
+
 const albumList = [
     dogPhotoList,
     babyPhotoList
@@ -66,7 +91,8 @@ class Gallery extends Component {
                     
                 }
             }
-    render(){
+	
+    render(){  
         return (
                 <div style={styles}>
                     <Router>
@@ -86,7 +112,7 @@ const AlbumLinks = () => (
     {albumList.map((album) => // Render the image of each of the photos in the list that can be clicked on to follow their link                       
         <div>
             <Link to={`/album${album}`} onClick={()=> {this.setState()}}>
-            <img src = {album}/> {/* This is what displays each photo*/}
+            <img src = {folderIcon}/> {/* This is what displays each photo*/}
             </Link>  
         </div>
                 

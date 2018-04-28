@@ -1,3 +1,5 @@
+//flexbox
+//display
 import React, { Component } from 'react';
 
 
@@ -81,10 +83,7 @@ class Photo extends Component {
 
     render(){
         const styles ={
-            height:400,
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
+			width: '100%'
         }
         const makeTitleBoxBigger={
             height:50,
@@ -92,7 +91,7 @@ class Photo extends Component {
         }
 
         return(
-            <div>
+            <div className = 'Photo'>
                 <h1
                     onClick={() => this.makeTitleEditable()}
                 > {!this.state.editableTitle && this.state.title}</h1> {/*Display the title above the image */}
