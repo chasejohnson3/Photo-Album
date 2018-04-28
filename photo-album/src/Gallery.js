@@ -66,15 +66,15 @@ import {
   } from 'react-router-dom'
 
 const dogPhotoList = [
-    "/dog1.jpg",
-    "/dog2.jpg",
-    "/dog3.jpg",
-    "/dog4.jpg"
+    "dog1.jpg",
+    "dog2.jpg",
+    "dog3.jpg",
+    "dog4.jpg"
     ]
 const babyPhotoList = [
-    "/baby1.jpg",
-    "/baby2.jpg",
-    "/baby3.jpg"
+    "baby1.jpg",
+    "baby2.jpg",
+    "baby3.jpg",
 ]
 
 const folderIcon = "/folderIcon.png"
@@ -111,8 +111,10 @@ const AlbumLinks = () => (
   <div style={{ backgroundColor: "lightgrey" }}>
     {albumList.map((album) => // Render the image of each of the photos in the list that can be clicked on to follow their link                       
         <div>
-            <Link to={`/album${album}`} onClick={()=> {this.setState()}}>
-            <img src = {folderIcon}/> {/* This is what displays each photo*/}
+            <Link className="Folder" to={`/album/${JSON.stringify(album)}`} onClick={()=> {this.setState()}}>
+            {/* <Link className="Folder" to={`/album`} onClick={()=> {this.setState()}}> */}
+
+                <img width="300" src = {album[0]}/> {/* This is what displays each photo*/}
             </Link>  
         </div>
                 
