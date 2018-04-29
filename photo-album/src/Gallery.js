@@ -77,6 +77,11 @@ const babyPhotoList = [
     "baby3.jpg",
 ]
 
+// localStorage.setItem("albums", JSON.stringify(albumList))
+localStorage.setItem("dogPhotoList", JSON.stringify(dogPhotoList))
+localStorage.setItem("babyPhotoList", JSON.stringify(babyPhotoList))
+
+
 const folderIcon = "/folderIcon.png"
 
 const albumList = [
