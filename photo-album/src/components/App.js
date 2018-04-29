@@ -38,7 +38,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={GalleryComponent} />
             <Route path="/gallery" component={GalleryComponent}/>
-            <Route path="/album" component={AlbumComponent} />
+            <Route path="/album/:album" component={AlbumComponent} />
+            {/* <Route path="/album" component={AlbumComponent} /> */}
             {/* <Route path="/individual" component={Individual} /> */}
             <Route path="/individual/:photo" component={Individual} />
             <Route path="/tabletop" component={TableTop} />
