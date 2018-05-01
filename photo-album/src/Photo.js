@@ -8,11 +8,12 @@ class Photo extends Component {
         super(props);
         this.state = {
             favorite : false,
-            comment: "",
-            editableComment: true,
+            comment: localStorage.getItem('Comment') || "Do not click me",
+            editableComment: false,
             autoFocusOnComment: false,
             autoFocusOnTitle: false,            
-            title: "Title",
+            title: localStorage.getItem('Title') || "Title",
+            
         }
     }
 
@@ -28,6 +29,7 @@ class Photo extends Component {
         this.setState((prevState, props) => {
             return {title: newTitle}
         })
+        localStorage.setItem('Title', newTitle);
     }
 
     makeTitleNotEditable(){
@@ -58,6 +60,7 @@ class Photo extends Component {
         this.setState((prevState, props) => {
             return {comment: newComment}
         })
+        localStorage.setItem('Comment',newComment);
     }
 
     makeCommentNotEditable(){
@@ -100,7 +103,7 @@ class Photo extends Component {
                         style={makeTitleBoxBigger}
                         ref={(titleBox) => {this.inputValTitle = titleBox}}
                         autoFocus={this.state.autoFocusOnTitle}
-                        placeholder="Title" // Have a nice message to encourage the user to enter a comment
+                        //value = {this.state.title}// Have a nice message to encourage the user to enter a comment
                         onKeyPress={this.waitForEnterTitle} // If the user types a non-empty message and hits enter, the message is displayed as text
                     />)}
                 <img src={this.props.image} style={styles}/>
@@ -114,7 +117,7 @@ class Photo extends Component {
                     (<input
                         ref={(commentBox) => {this.inputValComment = commentBox}}
                         autoFocus={this.state.autoFocusOnComment}
-                        placeholder="Add a comment..." // Have a nice message to encourage the user to enter a comment
+                         //value = {this.state.comment}// Have a nice message to encourage the user to enter a comment
                         onKeyPress={this.waitForEnterComment} // If the user types a non-empty message and hits enter, the message is displayed as text
                     />)}
             </div>
