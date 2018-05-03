@@ -27,9 +27,9 @@ const babyPhotoList = [
     "baby3.jpg",
 ]
 
-// localStorage.setItem("albums", JSON.stringify(albumList))
-localStorage.setItem("dogPhotoList", JSON.stringify(dogPhotoList))
-localStorage.setItem("babyPhotoList", JSON.stringify(babyPhotoList))
+// // localStorage.setItem("albums", JSON.stringify(albumList))
+// localStorage.setItem("dogPhotoList", JSON.stringify(dogPhotoList))
+// localStorage.setItem("babyPhotoList", JSON.stringify(babyPhotoList))
 
 
 const folderIcon = "/folderIcon.png"
@@ -67,6 +67,7 @@ class Gallery extends Component {
 
 const AlbumLinks = () => {
     // debugger;
+    
     var curr_album = localStorage.getItem("current_album");
     return(
     
@@ -75,7 +76,10 @@ const AlbumLinks = () => {
   {/* debugger */}
     {albumList.map((album) => // Render the image of each of the photos in the list that can be clicked on to follow their link                       
         <div>
-            {(curr_album!=null) && <Link className="Folder" to={`/album/${curr_album}`} onClick={()=> {this.setState()}}>
+            {<Link className="Folder"             
+                // to={curr_album && `/album/${curr_album}`} {/* If we have a previous album, */}
+                to={`/album/${JSON.stringify(album)}`} 
+                onClick={()=> {this.setState()}}>
             {/* <Link className="Folder" to={`/album/${JSON.stringify(album)}`} onClick={()=> {this.setState()}}> */}
 
             {/* <Link className="Folder" to={`/album`} onClick={()=> {this.setState()}}> */}

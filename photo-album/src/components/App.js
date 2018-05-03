@@ -26,12 +26,11 @@ class App extends Component {
       
       <Router>
         <div className="App">
-          <h2>{localStorage.getItem("current_album")}</h2>
           <div className="container">
             <ul>
-              <li><Link to="/gallery">gallery</Link></li>
-              <li><Link to={`/album/${localStorage.getItem("current_album")}`}>album</Link></li>
-              <li><Link to={`/individual/${localStorage.getItem("current_photo")}`}>individual</Link></li>
+              <li><Link to="/gallery/">gallery</Link></li>
+              {localStorage.getItem("current_album") && <li><Link to={`/album/${localStorage.getItem("current_album")}`}>album</Link></li>} {/*If you click on the album link, it goes to the most recently visited album (stored in localStorage)*/}
+              {localStorage.getItem("current_photo") && <li><Link to={`/individual/${localStorage.getItem("current_photo")}`}>individual</Link></li>} {/*If you click on the album link, it goes to the most recently visited photo (stored in localStorage)*/}
               <li><Link to="/tabletop">table top</Link>
               </li>
             </ul>
@@ -39,7 +38,7 @@ class App extends Component {
 
           <Switch>
             <Route exact path="/" component={GalleryComponent} />
-            <Route path="/gallery" component={GalleryComponent}/>
+            <Route path="/gallery/" component={GalleryComponent}/>
             <Route path="/album/:album" component={AlbumComponent} />
             {/* <Route path={`/album/${localStorage.getItem("current_album")}`} component={AlbumComponent} /> */}
             <Route path="/individual/:photo" component={Individual} />
