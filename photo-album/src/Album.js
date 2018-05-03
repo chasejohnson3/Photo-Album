@@ -74,7 +74,7 @@ const PhotoLinks = () => (
             {/* <h2>{photo}</h2> */}
             <Link to={`/individual/${photo}`} onClick={()=> {this.setState()}}>   {/*If we want to link to a photo, we have to save which photo was clicked */}               
             {/* <h1>{photo}</h1> */}
-            <img width="300" src = {`/${photo}`}/> {/* This is what displays each photo*/}
+            <img className="Photo" width="600" src = {`/${photo}`}/> {/* This is what displays each photo*/}
             </Link>  
         </div>
                 

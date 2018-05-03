@@ -1,53 +1,3 @@
-// import React, { Component } from 'react';
-// import Photos from "./Photo.js"
-// import Photo from "./Photo.js"
-
-// import icon1 from "./hardcoded_photos/folderIcon.png"
-
-// import image1 from "./hardcoded_photos/dog1.jpg"
-// import image2 from "./hardcoded_photos/dog2.jpg"
-// import image3 from "./hardcoded_photos/dog3.jpg"
-// import image4 from "./hardcoded_photos/dog4.jpg"
-
-// class Folder extends Component{
-// 	constructor(props){
-// 		super(props);
-// 		this.state={
-// 		album: [image2, image3, image4, image1],
-// 		icon: icon1
-// 		}
-// 	}
-// 	render(){
-// 		return(
-// 				<img src = {this.state.icon} className = 'Folder'/>
-// 				);
-// 	}
-// }
- 
- 
-//  class Gallery extends Component {
-//      constructor(props){
-//             super(props);
-//             this.state={
-// 			    gallery: [],		    
-// 			folders : [<Folder/>, <Folder/>, <Folder/>]
-//         }
-//      }
-	
-//     render(){  
-        
-// 		const renderFolder = (folderURL) => {return <Folder/>}
-//          return (
-
-            
-// 			<div>
-// 			{this.state.folders.map(renderFolder)}
-// 			</div>
-//          );
-//      }
-//  }
- 
-
 //  export default Gallery; 
 import React, { Component } from 'react';
 import Photo from "./Photo.js"
@@ -98,10 +48,13 @@ class Gallery extends Component {
             }
 	
     render(){  
+        // debugger
         return (
+            
                 <div style={styles}>
                     <Router>
                     <div>
+                        <Redirect from="/" to="/gallery/" />
                         <Route path="/gallery/" exact component={GalleryHome} />
                         <Route path="/gallery/section1"/>
                     </div>
@@ -112,20 +65,28 @@ class Gallery extends Component {
     }
 } 
 
-const AlbumLinks = () => (
+const AlbumLinks = () => {
+    // debugger;
+    var curr_album = localStorage.getItem("current_album");
+    return(
+    
+
   <div style={{ backgroundColor: "lightgrey" }}>
+  {/* debugger */}
     {albumList.map((album) => // Render the image of each of the photos in the list that can be clicked on to follow their link                       
         <div>
-            <Link className="Folder" to={`/album/${JSON.stringify(album)}`} onClick={()=> {this.setState()}}>
+            {(curr_album!=null) && <Link className="Folder" to={`/album/${curr_album}`} onClick={()=> {this.setState()}}>
+            {/* <Link className="Folder" to={`/album/${JSON.stringify(album)}`} onClick={()=> {this.setState()}}> */}
+
             {/* <Link className="Folder" to={`/album`} onClick={()=> {this.setState()}}> */}
 
-                <img width="300" src = {album[0]}/> {/* This is what displays each photo*/}
-            </Link>  
+                <img width="300" onClick={()=>{localStorage.setItem("current_album", JSON.stringify(album)); alert("test");}} src = {`/${album[0]}`}/> {/* This is what displays each photo*/}
+            </Link>}
         </div>
                 
         )}
   </div>
-);
+);}
 
 //localStorage!!!
 //JSON.stringify

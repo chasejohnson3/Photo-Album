@@ -22,13 +22,15 @@ import {
 class App extends Component {
   render() {
     return (
+
+      
       <Router>
         <div className="App">
-
+          <h2>{localStorage.getItem("current_album")}</h2>
           <div className="container">
             <ul>
               <li><Link to="/gallery">gallery</Link></li>
-              <li><Link to="/album">album</Link></li>
+              <li><Link to={`/album/${localStorage.getItem("current_album")}`}>album</Link></li>
               <li><Link to="/individual">individual</Link></li>
               <li><Link to="/tabletop">table top</Link>
               </li>
@@ -39,8 +41,7 @@ class App extends Component {
             <Route exact path="/" component={GalleryComponent} />
             <Route path="/gallery" component={GalleryComponent}/>
             <Route path="/album/:album" component={AlbumComponent} />
-            {/* <Route path="/album" component={AlbumComponent} /> */}
-            {/* <Route path="/individual" component={Individual} /> */}
+            {/* <Route path={`/album/${localStorage.getItem("current_album")}`} component={AlbumComponent} /> */}
             <Route path="/individual/:photo" component={Individual} />
             <Route path="/tabletop" component={TableTop} />
           </Switch>
