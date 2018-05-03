@@ -68,10 +68,10 @@ const PhotoLinks = () => {
     <div style={{ backgroundColor: "lightgrey" }}>
         {photos.map((photo) => // Render the image of each of the photos in the list that can be clicked on to follow their link                       
             
-            <div>
+            <div className="PhotoContainer">
                 <Link to={`/individual/${photo}`} onClick={()=> {this.setState()}}>   {/*If we want to link to a photo, we have to save which photo was clicked */}
                     <img 
-                        className="Photo" 
+                        className="Photo"
                         width="600"  
                         onClick={()=>{localStorage.setItem("current_photo", photo);}}
                         src = {`/${photo}`}

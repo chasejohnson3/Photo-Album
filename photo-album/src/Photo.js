@@ -86,7 +86,8 @@ class Photo extends Component {
 
     render(){
         const styles ={
-			width: '100%'
+            width: '75%',
+            align: "center",
         }
         const makeTitleBoxBigger={
             height:50,
@@ -94,7 +95,7 @@ class Photo extends Component {
         }
 
         return(
-            <div>
+            <div align="center">
                 <h1
                     onClick={() => this.makeTitleEditable()}
                 > {!this.state.editableTitle && this.state.title}</h1> {/*Display the title above the image */}

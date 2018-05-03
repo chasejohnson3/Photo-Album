@@ -1,11 +1,38 @@
-.Photo{
+.FolderParent{
+  position: relative;
+  top: 0;
+  left: 0;
   margin: 5px;
+  
+   float: center;
  
-  float: center;
-  /* width: 209px; */
-  width: 400px;
+   display: inline-block;
+  
+}
 
-  display: inline-block;
+.FolderImage1{
+  position: relative;
+  top:0;
+  left:0;
+  width: 300;
+}
+
+.FolderImage2{
+  position: absolute;
+  right: 15px;
+  bottom: 50px;
+  width: 125px;
+}
+
+.Photo{
+  width: 75%;
+  float: center;
+}
+
+.PhotoContainer{
+  margin: 5px;
+  display:inline-block;
+  width:45%;
 }
 
 .Photo:hover {

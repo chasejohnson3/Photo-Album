@@ -75,8 +75,8 @@ const AlbumLinks = () => {
   <div style={{ backgroundColor: "lightgrey" }}>
   {/* debugger */}
     {albumList.map((album) => // Render the image of each of the photos in the list that can be clicked on to follow their link                       
-        <div>
-            {<Link className="Folder"             
+        <div className="FolderParent">
+            {<Link className="FolderParent"             
                 // to={curr_album && `/album/${curr_album}`} {/* If we have a previous album, */}
                 to={`/album/${JSON.stringify(album)}`} 
                 onClick={()=> {this.setState()}}>
@@ -85,8 +85,14 @@ const AlbumLinks = () => {
             {/* <Link className="Folder" to={`/album`} onClick={()=> {this.setState()}}> */}
 
                 <img 
+                    className="FolderImage1"
                     width="300"     
                     onClick={()=>{localStorage.setItem("current_album", JSON.stringify(album));}} 
+                    // src = {`/${album[0]}`}/> {/* This is what displays the first photo of each album*/}
+                    src = "/folderIcon.png"
+                />
+                <img
+                    className="FolderImage2"
                     src = {`/${album[0]}`}/> {/* This is what displays the first photo of each album*/}
             </Link>}
         </div>
