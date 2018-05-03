@@ -26,12 +26,13 @@ class App extends Component {
         <div className="App">
 
           <div className="container">
-            <ul>
-              <li><Link to="/gallery">gallery</Link></li>
-              <li><Link to="/album">album</Link></li>
-              <li><Link to="/individual">individual</Link></li>
-              <li><Link to="/tabletop">table top</Link>
-              </li>
+          
+            <ul className="tab">
+              <Link to="/gallery"><button class="tablinks"> gallery</button></Link>
+              <Link to="/album"><button class="tablinks"> album</button></Link>
+              <Link to="/individual"><button class="tablinks"> individual</button></Link>
+              <Link to="/tabletop"><button class="tablinks"> tabletop</button></Link>
+              
             </ul>
             <hr/>
 
