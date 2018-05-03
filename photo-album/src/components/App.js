@@ -31,7 +31,7 @@ class App extends Component {
             <ul>
               <li><Link to="/gallery">gallery</Link></li>
               <li><Link to={`/album/${localStorage.getItem("current_album")}`}>album</Link></li>
-              <li><Link to="/individual">individual</Link></li>
+              <li><Link to={`/individual/${localStorage.getItem("current_photo")}`}>individual</Link></li>
               <li><Link to="/tabletop">table top</Link>
               </li>
             </ul>

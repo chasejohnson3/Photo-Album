@@ -80,7 +80,10 @@ const AlbumLinks = () => {
 
             {/* <Link className="Folder" to={`/album`} onClick={()=> {this.setState()}}> */}
 
-                <img width="300" onClick={()=>{localStorage.setItem("current_album", JSON.stringify(album)); alert("test");}} src = {`/${album[0]}`}/> {/* This is what displays each photo*/}
+                <img 
+                    width="300"     
+                    onClick={()=>{localStorage.setItem("current_album", JSON.stringify(album));}} 
+                    src = {`/${album[0]}`}/> {/* This is what displays the first photo of each album*/}
             </Link>}
         </div>
                 
