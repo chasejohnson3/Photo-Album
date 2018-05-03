@@ -62,29 +62,26 @@ class Album extends Component {
     }
 } 
 
-const PhotoLinks = () => (
-  <div style={{ backgroundColor: "lightgrey" }}>
-    {/* <h2>{JSON.parse(localStorage.getItem("currentAlbum"))}</h2> */}
-    {/* <h2>{photos}</h2>
-    <h1>test</h1> */}
-    {/* {JSON.parse(localStorage.getItem("currentAlbum")).map((photo) => // Render the image of each of the photos in the list that can be clicked on to follow their link                        */}
-    {photos.map((photo) => // Render the image of each of the photos in the list that can be clicked on to follow their link                       
-        
-        <div>
-            {/* <h2>{photo}</h2> */}
-            <Link to={`/individual/${photo}`} onClick={()=> {this.setState()}}>   {/*If we want to link to a photo, we have to save which photo was clicked */}               
-            {/* <h1>{photo}</h1> */}
-            <img width="300" src = {`/${photo}`}/> {/* This is what displays each photo*/}
-            </Link>  
-        </div>
-                
-        )}
-  </div>
-);
-
-//localStorage!!!
-//JSON.stringify
-//JSON.parse
+const PhotoLinks = () => {
+    var curr_photo = localStorage.getItem("current_photo");
+    return (
+    <div style={{ backgroundColor: "lightgrey" }}>
+        {photos.map((photo) => // Render the image of each of the photos in the list that can be clicked on to follow their link                       
+            
+            <div>
+                <Link to={`/individual/${photo}`} onClick={()=> {this.setState()}}>   {/*If we want to link to a photo, we have to save which photo was clicked */}
+                    <img 
+                        className="Photo" 
+                        width="600"  
+                        onClick={()=>{localStorage.setItem("current_photo", photo);}}
+                        src = {`/${photo}`}
+                    /> {/* This is what displays each photo*/}
+                </Link>  
+            </div>
+                    
+            )}
+    </div>
+);}
 
 const AlbumHome = () => <PhotoLinks/>;
 

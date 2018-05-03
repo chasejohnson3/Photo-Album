@@ -2,7 +2,8 @@
   margin: 5px;
  
   float: center;
-  width: 209px;
+  /* width: 209px; */
+  width: 400px;
 
   display: inline-block;
 }
