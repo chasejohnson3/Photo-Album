@@ -6,6 +6,9 @@ import Individual from './IndividualComponent';
 import GalleryComponent from './GalleryComponent';
 import AlbumComponent from './AlbumComponent';
 
+
+
+import Table from '../TableTop.js'
 // import image1 from "../hardcoded_photos/dog1.jpg"
 
 
@@ -20,6 +23,17 @@ import {
 
 
 class App extends Component {
+	constructor(){
+		super()
+		this.state = {
+			isHidden: true
+		}
+	}
+	toggleHidden () {
+    this.setState({
+		isHidden: !this.state.isHidden
+		})
+	}
   render() {
     return (
 
@@ -28,12 +42,15 @@ class App extends Component {
         <div className="App">
           <div className="container">
             <ul>
-              <li><Link to="/gallery/">gallery</Link></li>
-              {localStorage.getItem("current_album") && <li><Link to={`/album/${localStorage.getItem("current_album")}`}>album</Link></li>} {/*If you click on the album link, it goes to the most recently visited album (stored in localStorage)*/}
-              {localStorage.getItem("current_photo") && <li><Link to={`/individual/${localStorage.getItem("current_photo")}`}>individual</Link></li>} {/*If you click on the album link, it goes to the most recently visited photo (stored in localStorage)*/}
-              <li><Link to="/tabletop">table top</Link>
-              </li>
+              <li><Link to="/gallery/">Gallery</Link></li>
+              {localStorage.getItem("current_album") && <li><Link to={`/album/${localStorage.getItem("current_album")}`}>Album</Link></li>} {/*If you click on the album link, it goes to the most recently visited album (stored in localStorage)*/}
+              {localStorage.getItem("current_photo") && <li><Link to={`/individual/${localStorage.getItem("current_photo")}`}>Individual</Link></li>} {/*If you click on the album link, it goes to the most recently visited photo (stored in localStorage)*/}
+			 
+				<button onClick={this.toggleHidden.bind(this)} > TableTop</button>
+				{!this.state.isHidden &&  <div>{<Table/>}</div>}
             </ul>
+			
+			
             <hr/>
 
           <Switch>

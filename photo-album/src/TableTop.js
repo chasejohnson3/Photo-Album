@@ -8,26 +8,32 @@ import { render } from "react-dom";
 
 import Draggable from 'react-draggable';
 
-import image1 from "./dog1.jpg"
+const image1 = "/dog2.jpg"
+const image2 = "/baby1.jpg"
+const image3 = "/dog4.jpg"
+const image4 = "/baby2.jpg"
+const image5 = "/dog1.jpg"
 
 
 class Table extends Component{
  	constructor(props){
  		super(props);
  		this.state={
- 		image : image1
+ 		images : [image1, image2, image3, image4, image5]
  		}
  	}
  	render(){
- 		return(
-		<Draggable>
+		const renderImage = (imageURL) => {return   <Draggable>
+														<img src = {imageURL} className = 'Polaroid'/> 
+													</Draggable>} 		
+		return(
 		<div>
-			<img src = {this.state.image} className = 'Folder'/>
+			{this.state.images.map(renderImage)}
  		</div>
-		</Draggable>
 				);
  	}
  }
+
 
 
 export default Table;
