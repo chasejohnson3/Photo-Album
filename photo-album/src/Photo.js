@@ -8,11 +8,11 @@ class Photo extends Component {
         super(props);
         this.state = {
             favorite : false,
-            comment: localStorage.getItem('Comment') || "Do not click me",
+            comment: localStorage.getItem('Comment_' + this.props.image) || "Click me to add comment...",
             editableComment: false,
             autoFocusOnComment: false,
             autoFocusOnTitle: false,            
-            title: localStorage.getItem('Title') || "Title",
+            title: localStorage.getItem('Title_' + this.props.image) || "Title",
             
         }
     }
@@ -29,7 +29,7 @@ class Photo extends Component {
         this.setState((prevState, props) => {
             return {title: newTitle}
         })
-        localStorage.setItem('Title', newTitle);
+        localStorage.setItem('Title_' + this.props.image, newTitle);
     }
 
     makeTitleNotEditable(){
@@ -60,7 +60,7 @@ class Photo extends Component {
         this.setState((prevState, props) => {
             return {comment: newComment}
         })
-        localStorage.setItem('Comment',newComment);
+        localStorage.setItem('Comment_' + this.props.image, newComment);
     }
 
     makeCommentNotEditable(){
@@ -94,7 +94,7 @@ class Photo extends Component {
         }
 
         return(
-            <div className = 'Photo'>
+            <div>
                 <h1
                     onClick={() => this.makeTitleEditable()}
                 > {!this.state.editableTitle && this.state.title}</h1> {/*Display the title above the image */}
