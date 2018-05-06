@@ -42,14 +42,15 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="container">
-            <ul>
-              <li><Link to="/gallery/">Gallery</Link></li>
-              {localStorage.getItem("current_album") && <li><Link to={`/album/${localStorage.getItem("current_album")}`}>Album</Link></li>} {/*If you click on the album link, it goes to the most recently visited album (stored in localStorage)*/}
-              {localStorage.getItem("current_photo") && <li><Link to={`/individual/${localStorage.getItem("current_photo")}`}>Individual</Link></li>} {/*If you click on the album link, it goes to the most recently visited photo (stored in localStorage)*/}
+            <ul className="tab">
+              <Link to="/gallery/"><button className="tablinks"> Gallery</button></Link>
+              {localStorage.getItem("current_album") && <Link to={`/album/${localStorage.getItem("current_album")}`}><button className="tablinks"> Album</button></Link>} {/*If you click on the album link, it goes to the most recently visited album (stored in localStorage)*/}
+              {localStorage.getItem("current_photo") && <Link to={`/individual/${localStorage.getItem("current_photo")}`}><button className="tablinks"> Individual</button></Link>} {/*If you click on the album link, it goes to the most recently visited photo (stored in localStorage)*/}
 			 
-				<button onClick={this.toggleHidden.bind(this)} className = "linkButton" > TableTop</button>
+				<button onClick={this.toggleHidden.bind(this)} className = "linkButton" ><button class="tablinks">TableTop</button> </button>
+        </ul>
 				{!this.state.isHidden &&  <div>{<Table/>}</div>}
-            </ul>
+            
 			
 			
             <hr/>
