@@ -22,6 +22,7 @@ import {
 } from 'react-router-dom'
 
 
+
 class App extends Component {
 	constructor(){
 		super()
@@ -46,7 +47,7 @@ class App extends Component {
               {localStorage.getItem("current_album") && <li><Link to={`/album/${localStorage.getItem("current_album")}`}>Album</Link></li>} {/*If you click on the album link, it goes to the most recently visited album (stored in localStorage)*/}
               {localStorage.getItem("current_photo") && <li><Link to={`/individual/${localStorage.getItem("current_photo")}`}>Individual</Link></li>} {/*If you click on the album link, it goes to the most recently visited photo (stored in localStorage)*/}
 			 
-				<button onClick={this.toggleHidden.bind(this)} > TableTop</button>
+				<button onClick={this.toggleHidden.bind(this)} className = "linkButton" > TableTop</button>
 				{!this.state.isHidden &&  <div>{<Table/>}</div>}
             </ul>
 			
