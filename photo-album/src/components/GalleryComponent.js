@@ -5,7 +5,7 @@ const GalleryComponent = () => {
     return (
         <div className="jumbotron">
             <h1 className="display-3">Gallery</h1>
-            <Gallery/>
+            <Gallery/> {/*Show the gallery that contains the albums */}
         </div>
     );
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Photo from "./Photo.js"
 import { render } from "react-dom";
-// import { BrowserRouter, Route, Link } from "react-router-dom";
 
 import TableTop from './components/TableTopComponent';
 import Individual from './components/IndividualComponent';
@@ -17,11 +16,8 @@ import {
     Redirect
   } from 'react-router-dom'
 
- var photos = [
-    "dog1.jpg",
-    "dog2.jpg",    
-    ]
-// const Album = () => (
+  var photos = [] // photos will be populated with the file names of the photos in the album that is clicked
+
 class Album extends Component {
     constructor(props){
                 super(props);
@@ -29,32 +25,16 @@ class Album extends Component {
                     photoList: props.album, 
                     
                 }
-                // photos = props.album
             
     }
 
     render(){
-        // photos = this.props.album    
-        // localStorage.setItem("currentAlbum", )  
-        // photos = this.props.album.map((photoObj) =>{
-        //     <Photo image=`/${photoObj}`
-        // }) 
-        // photos = Array.from(this.props.album) 
         photos = JSON.parse(this.props.album)
         return (
                 <div style={styles}>
-                    {/* <h2>{this.state.photoList}</h2> */}
-                    {/* <h2>{photos}</h2> */}
-                    {/* {localStorage.setItem("currentAlbum")} */}
-                    {/* <h2>{JSON.parse(localStorage.getItem("currentAlbum"))}</h2> */}
-        
-                    {/* <h1>{this.props.album}</h1> */}
-                    {/* {photos = this.props.album.map((albumItem) => )} */}
-                    {/* <h1>{photos}</h1> */}
                     <Router>
                     <div>
-                        <Route path="/album/:album" exact component={AlbumHome} />
-                        <Route path="/album/section1"/>
+                        <Route path="/album/:album" exact component={AlbumHome} /> {/* When an album is clicked, it routes by passing url param of the array containing photo file names*/}
                     </div>
                     </Router>
                 </div>
@@ -73,7 +53,7 @@ const PhotoLinks = () => {
                     <img 
                         className="Photo" 
                         width="600"  
-                        onClick={()=>{localStorage.setItem("current_photo", photo);}}
+                        onClick={()=>{localStorage.setItem("current_photo", photo);}} // When a photo is clicked, save the photo's file name in local storage - it will be the default for the 'Individual' tab until another is clicked
                         src = {`/${photo}`}
                     /> {/* This is what displays each photo*/}
                 </Link>  
