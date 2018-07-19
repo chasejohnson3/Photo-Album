@@ -14,7 +14,7 @@ import Table from '../TableTop.js'
 
 // import route Components here
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
   Link,
   Switch,
