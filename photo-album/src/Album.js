@@ -9,7 +9,7 @@ import AlbumComponent from './components/AlbumComponent';
 
 // import route Components here
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Route,
     Link,
     Switch,
