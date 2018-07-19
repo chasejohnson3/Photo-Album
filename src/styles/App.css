@@ -1,0 +1,122 @@
+.tallDiv{
+	border-style: solid;
+	border-width: 2px;
+	height : 600px;
+	border-radius: 100px;
+	padding: 25px;
+	background-image: url('/woodTable.jpg');
+	
+}
+
+.linkButton{
+	display:list-item;
+	 background:none!important;
+     color:inherit;
+     border:none; 
+     padding:0!important;
+     font: inherit; 
+     cursor: pointer;
+	
+}
+
+.tableTops{
+text-align:center;
+font-size: 100;
+}
+
+.Polaroid{
+    width: 209px;
+    background: white;
+    display: inline;
+    float: left;
+    margin: 0 15px 30px;
+    padding: 10px 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 4px 6px rgba(0,0,0,.3);
+    box-shadow: 0 4px 6px rgba(0,0,0,.3);
+    -webkit-transition: all .15s linear;
+    -moz-transition: all .15s linear;
+    transition: all .15s linear;
+    z-index:0;
+        position:relative;
+}
+
+.Photo{
+  margin: 5px;
+ 
+  float: center;
+  /* width: 209px; */
+  width: 400px;
+
+  display: inline-block;
+}
+
+.Photo:hover {
+  border: 1px solid #777
+}
+
+.Photo:active {
+  border: none;
+}
+
+
+.Folder{
+  margin: 5px;
+ 
+  float: center;
+
+  display: inline-block;
+}
+
+.Folder:hover {
+  border: 1px solid #777
+}
+
+.Folder:active {
+  border: none;
+}
+
+.App {
+  padding-top: 50px;
+}
+
+
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css');
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
