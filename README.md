@@ -9,3 +9,5 @@ VERSION or DATE: 2018
 AUTHORS: Chase Johnson, John Walton, Junyan Yang
 
 USER INSTRUCTIONS: Navigate through the photos by clicking on them.  To change a title or comment, click on the text
+
+Unfortunately, this project is not currently hosted, so you cannot interact with the site as it currently stands.
